@@ -23,14 +23,4 @@ public class UsersServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/users.jsp");
         requestDispatcher.forward(req, resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String age = req.getParameter("age");
-        User user = new User(name, Integer.parseInt(age));
-        UserModel userModel = UserModel.getInstance();
-        userModel.add(user);
-        doGet(req, resp);
-    }
 }

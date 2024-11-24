@@ -1,6 +1,4 @@
-<%@ page import="entities.User" %>
-<%@ page import="models.UserModel" %>
-<%@ page import="servlets.UsersServlet" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Jammy Hubby
   Date: 14.11.2024
@@ -14,16 +12,14 @@
 </head>
 <body>
 <a href="users">Back</a>
-<h1>UserMoreInfo</h1>
-<p>User id: <%= request.getParameter("id")%></p>
 
-<%int id = Integer.parseInt(request.getParameter("id"));
-    UserModel userModel = UserModel.getInstance();
-    User myUser = userModel.find(id);
-    out.println("<p>" + "User name: " + myUser.getName() +"</p>");
-    out.println("<p>" + "User age: " + myUser.getAge() +"</p>");
-%>
-<button><a href="deleteUser?id=<%= myUser.getId()%>">Delete</a></button>
-<button><a href="updateUser?id=<%=myUser.getId()%>">Update</a></button>
+<h1>UserMoreInfo</h1>
+
+<p>User id: ${requestScope.user.id}</p>
+<p>User name: ${requestScope.user.name}</p>
+<p>User age: ${requestScope.user.age}</p>
+
+<button><a href="deleteUser?id=${requestScope.user.id}">Delete</a></button>
+<button><a href="updateUser?id=${requestScope.user.id}">Update</a></button>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <h1>${Header}</h1>
 
 <h2>Add user:</h2>
-<form action="users" method="post">
+<form action="addUser" method="post">
     <label>Name:
         <input type="text" name="name"><br />
     </label>

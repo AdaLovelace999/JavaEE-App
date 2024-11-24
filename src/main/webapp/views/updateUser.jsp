@@ -12,17 +12,16 @@
     <title>UpdateUser</title>
 </head>
 <body>
-<%int id = Integer.parseInt(request.getParameter("id"));
-    UserModel userModel = UserModel.getInstance();
-    User myUser = userModel.find(id);%>
-<h2>Update user:</h2>
-<form action="updateUser?id=<%= myUser.getId()%>" method="post">
-    <label>Name:
-        <input type="text" name="name" value="<%= myUser.getName()%>"><br />
-    </label>
 
+<h2>Update user:</h2>
+
+<form method="post">
+    <input type="hidden" value="${requestScope.user.id}" name="id"/>
+    <label>Name:
+        <input type="text" name="name" value="${requestScope.user.name}"><br />
+    </label>
     <label>Age:
-        <input type="number" name="age" value="<%= myUser.getAge()%>"><br />
+        <input type="number" name="age" value="${requestScope.user.age}"><br />
     </label>
     <button type="submit">Save changes</button>
 </form>

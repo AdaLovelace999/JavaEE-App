@@ -39,8 +39,4 @@ public class User {
         this.age = age;
     }
 
-    /*public User find(int id){
-        User user;
-
-    }*/
 }
